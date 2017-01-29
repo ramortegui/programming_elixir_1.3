@@ -17,7 +17,7 @@ end
 
 IO.inspect(sum.([1,2,3]))
 
-# pair tupe to list
+# pair tuple to list
 pair_tuple_to_list = fn({a,b}) -> 
   [a,b]
 end
@@ -43,10 +43,23 @@ IO.inspect(fizz_buzz.(1,0,1));
 IO.inspect(fizz_buzz.(1,1,1));
 
 
-# Functions - 3
+# Functions-3
 
 check_fizz_buzz = fn(x) -> 
   fizz_buzz.(rem(x,3),rem(x,5),x)
 end
 
 Enum.each(10..16, &( IO.puts(check_fizz_buzz.(&1)) ))
+
+
+# Functions -4
+prefix = fn(x) -> 
+  fn(y) -> "#{x} #{y}"
+  end
+end
+
+
+mrs = prefix.("Mrs")
+IO.puts mrs.("Smith")
+
+IO.puts prefix.("Elixir").("Rocks")
