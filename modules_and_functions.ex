@@ -10,7 +10,19 @@ end
 # Modules and functions-2
 # Compile the module calling iex or using iex>c "filename.ex"
 
+# Modules and functions-4
 
+defmodule RaMath do
+  def sum(x) do
+    _sum(0,x)
+  end
 
+  defp _sum(acc,x) do
+    case x do
+      0 -> acc
+      x -> _sum(acc+x, x-1)
+    end
+  end
+end
 
 
