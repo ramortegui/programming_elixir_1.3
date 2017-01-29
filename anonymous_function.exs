@@ -23,3 +23,30 @@ pair_tuple_to_list = fn({a,b}) ->
 end
 
 IO.inspect(pair_tuple_to_list.({1234,5678}))
+
+
+
+# Functions-2
+#
+#fizz-buzz
+
+fizz_buzz = fn
+  (0,0,_) -> "Fizz Buzz"
+  (0,_,_) -> "Fizz"
+  (_,0,_) -> "Buzz"
+  (_,_,c) -> c
+end
+
+IO.inspect(fizz_buzz.(0,0,1));
+IO.inspect(fizz_buzz.(0,1,1));
+IO.inspect(fizz_buzz.(1,0,1));
+IO.inspect(fizz_buzz.(1,1,1));
+
+
+# Functions - 3
+
+check_fizz_buzz = fn(x) -> 
+  fizz_buzz.(rem(x,3),rem(x,5),x)
+end
+
+Enum.each(10..16, &( IO.puts(check_fizz_buzz.(&1)) ))
