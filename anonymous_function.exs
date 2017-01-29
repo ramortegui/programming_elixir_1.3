@@ -52,7 +52,7 @@ end
 Enum.each(10..16, &( IO.puts(check_fizz_buzz.(&1)) ))
 
 
-# Functions -4
+# Functions-4
 prefix = fn(x) -> 
   fn(y) -> "#{x} #{y}"
   end
@@ -63,3 +63,14 @@ mrs = prefix.("Mrs")
 IO.puts mrs.("Smith")
 
 IO.puts prefix.("Elixir").("Rocks")
+
+
+# Functions-5
+
+# Enum.map [1,2,3,4], fn x -> x + 2 end
+
+IO.inspect Enum.map([1,2,3,4],&(&1+2))
+
+# Enum.each [1,2,3,4], fn x -> IO.inspect x end
+
+Enum.each [1,2,3,4], &IO.inspect/1
