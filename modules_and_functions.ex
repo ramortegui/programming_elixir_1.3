@@ -35,5 +35,25 @@ defmodule RaMath do
 
 end
 
+# Moudles and functions -6
+
+defmodule Chop do
+  def _guess(num, min..max,guess_number) when guess_number == num do
+    IO.puts("Is it #{guess_number}")
+    num
+  end
+  def _guess(num, min..max, guess_number) when num < guess_number do
+    IO.puts("Is it #{guess_number}")
+    _guess(num,min..guess_number, div(min+guess_number,2) )
+  end
+  def _guess(num, min..max, guess_number) when num > guess_number do
+    IO.puts("Is it #{guess_number}")
+    _guess(num,guess_number..max, div(max+guess_number,2) )
+  end
+  def guess(num, min..max) do
+     _guess(num, min..max, div(max,2))
+  end
+end
+
 
 
