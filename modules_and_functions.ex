@@ -11,6 +11,7 @@ end
 # Compile the module calling iex or using iex>c "filename.ex"
 
 # Modules and functions-4
+# Modules and functions-5
 
 defmodule RaMath do
   def sum(x) do
@@ -23,6 +24,16 @@ defmodule RaMath do
       x -> _sum(acc+x, x-1)
     end
   end
+
+
+  def gcd(x,0) do
+    x
+  end
+  def gcd(x,y) do
+    gcd(y,rem(x,y))
+  end
+
 end
+
 
 
