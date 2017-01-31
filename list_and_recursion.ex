@@ -10,7 +10,8 @@ end
 
 
 #Write a mapsum funciton ListAndRecursion-1
-#Write a max(list) funciton ListAndRecursion-2
+#Write a max(list) function ListAndRecursion-2
+#Write a caesar function ListAndRecursion-3
 defmodule MyList do
   def reduce([], value, _) do
     value
@@ -41,5 +42,20 @@ defmodule MyList do
   end
   defp maxp([head|tail], max) when head < max do
     maxp(tail, max)
+  end
+
+
+  def caesar(list, n) do
+     _caesar(list,[],n) 
+  end
+
+  defp _caesar([], list, _ )do
+    list
+  end
+  defp _caesar([head|tail], list, n) when head+n > 122 do
+   _caesar(tail, list ++ [head+n-123+97] ,n)
+  end
+  defp _caesar([head|tail], list, n) when head+n <= 122 do
+   _caesar(tail, list ++ [(head+n)] ,n)
   end
 end
