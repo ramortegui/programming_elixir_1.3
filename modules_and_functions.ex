@@ -56,4 +56,22 @@ defmodule Chop do
 end
 
 
+# Module sand functions -7
 
+#print float with double precision
+:io_lib.format("~.2f",[123.1244])
+
+#Get environment variables
+System.get_env("HOME")
+
+#Return the extension component of a file name
+Path.extname("anonymous_functions.exs")
+
+#Process current working directory
+pwd()
+
+#Decode JSON into Elixir data structure
+Poison.encode!(%Person{name: "Devin Torres", age: 27})
+
+#Execute a command in your operating system
+System.cmd "xeyes", []
