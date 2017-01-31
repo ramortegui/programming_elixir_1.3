@@ -35,7 +35,7 @@ defmodule RaMath do
 
 end
 
-# Moudles and functions -6
+# Modules and functions -6
 
 defmodule Chop do
   def _guess(num, min..max,guess_number) when guess_number == num do
