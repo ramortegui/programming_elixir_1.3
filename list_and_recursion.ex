@@ -10,6 +10,7 @@ end
 
 
 #Write a mapsum funciton ListAndRecursion-1
+#Write a max(list) funciton ListAndRecursion-2
 defmodule MyList do
   def reduce([], value, _) do
     value
@@ -29,4 +30,16 @@ defmodule MyList do
     mapsum(tail, value+fun.(head), fun)
   end
 
+  def max([head|tail]) do
+    maxp(tail, head)
+  end
+  defp maxp( [], max) do
+    max
+  end
+  defp maxp([head|tail], max) when head >= max do
+    maxp(tail, head)
+  end
+  defp maxp([head|tail], max) when head < max do
+    maxp(tail, max)
+  end
 end
