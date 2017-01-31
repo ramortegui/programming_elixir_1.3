@@ -12,6 +12,7 @@ end
 #Write a mapsum funciton ListAndRecursion-1
 #Write a max(list) function ListAndRecursion-2
 #Write a caesar function ListAndRecursion-3
+#Write a span funciton ListAndRecurson-4
 defmodule MyList do
   def reduce([], value, _) do
     value
@@ -58,4 +59,15 @@ defmodule MyList do
   defp _caesar([head|tail], list, n) when head+n <= 122 do
    _caesar(tail, list ++ [(head+n)] ,n)
   end
+
+  def span( from, to) do
+    span( from, to, [])
+  end
+  defp span(from, to, list) when from == to do
+   list ++ [from]
+  end
+  defp span(from, to, list) do
+    span( from+1, to, list ++ [from] )
+  end
 end
+
