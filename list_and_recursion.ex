@@ -13,6 +13,7 @@ end
 #Write a max(list) function ListAndRecursion-2
 #Write a caesar function ListAndRecursion-3
 #Write a span funciton ListAndRecurson-4
+#Wirte Enum funcitons with no library or list comprehensions ListAndRecursion-5
 defmodule MyList do
   def reduce([], value, _) do
     value
@@ -69,5 +70,19 @@ defmodule MyList do
   defp span(from, to, list) do
     span( from+1, to, list ++ [from] )
   end
+
+  def all?([]) do
+    true
+  end
+
+  def all?([head|_]) when is_nil(head) do
+    false
+  end
+
+  def all?([_|tail]) do
+    all? tail
+  end
 end
+
+
 
