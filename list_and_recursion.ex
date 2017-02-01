@@ -106,6 +106,16 @@ defmodule MyList do
       _filter(tail, fun, list)
     end
   end
+
+  def take(list, n) do
+    _take(list,n,[])
+  end
+  defp _take(_, n, acc) when n == 0 do
+    acc
+  end
+  defp _take([head|tail],n,acc) do
+    _take(tail,n-1,acc++[head])
+  end
 end
 
 
