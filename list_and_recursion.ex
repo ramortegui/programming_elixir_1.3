@@ -116,6 +116,21 @@ defmodule MyList do
   defp _take([head|tail],n,acc) do
     _take(tail,n-1,acc++[head])
   end
+
+  def split(list,n) do
+    _split(list,n,[])
+  end
+  defp _split([], _, acc) do
+    {[],acc}
+  end
+  defp _split([head |tail] , n, acc) when head == n do
+    {acc++[head], tail}
+  end
+  defp _split([head|tail], n, acc) do
+    _split(tail,n,acc++[head])
+  end
+
+
 end
 
 
