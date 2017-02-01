@@ -82,6 +82,17 @@ defmodule MyList do
   def all?([_|tail]) do
     all? tail
   end
+
+  def each( list, fun ) do
+    _each( list, fun, [] )
+  end
+  defp _each( [], _ , list ) do
+    list
+  end
+  defp _each([head|tail],fun,list) do
+    _each(tail, fun, list ++ [fun.(head)] )
+  end
+
 end
 
 
