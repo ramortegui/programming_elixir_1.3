@@ -13,7 +13,8 @@ end
 #Write a max(list) function ListAndRecursion-2
 #Write a caesar function ListAndRecursion-3
 #Write a span funciton ListAndRecurson-4
-#Wirte Enum funcitons with no library or list comprehensions ListAndRecursion-5
+#Write Enum funcitons with no library or list comprehensions ListAndRecursion-5
+#Write flatten function ListAndRecursion-6
 defmodule MyList do
   def reduce([], value, _) do
     value
@@ -130,7 +131,15 @@ defmodule MyList do
     _split(tail,n,acc++[head])
   end
 
-
+  def flatten([]) do
+    []
+  end
+  def flatten([head|tail]) when is_list(head) do
+    flatten(head)++flatten(tail)
+  end
+  def flatten([head|tail]) do
+    [head]++flatten(tail)
+  end
 end
 
 
