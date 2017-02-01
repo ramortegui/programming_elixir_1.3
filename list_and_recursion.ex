@@ -93,6 +93,19 @@ defmodule MyList do
     _each(tail, fun, list ++ [fun.(head)] )
   end
 
+  def filter(list,fun) do
+    _filter(list, fun,[])
+  end
+  defp _filter([], _, list) do
+    list
+  end
+  defp _filter([head|tail], fun, list) do
+    if(fun.(head)) do
+      _filter(tail, fun, list++[head])
+    else
+      _filter(tail, fun, list)
+    end
+  end
 end
 
 
