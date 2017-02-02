@@ -15,6 +15,7 @@ end
 #Write a span funciton ListAndRecurson-4
 #Write Enum funcitons with no library or list comprehensions ListAndRecursion-5
 #Write flatten function ListAndRecursion-6
+#Write primes function LIstAndRecursion-7
 defmodule MyList do
   def reduce([], value, _) do
     value
@@ -140,6 +141,21 @@ defmodule MyList do
   def flatten([head|tail]) do
     [head]++flatten(tail)
   end
+
+  def primes(n) when n > 1 do
+    for x <- span(2,n), is_prime?(x), do: x
+  end
+  defp is_prime?(n) when n <= 3 and n > 1, do: true
+
+  defp is_prime?(n) when n >= 2 do
+    num = span(2,div(n,2))
+    factors = for x <- num, rem(n,x) == 0,do: x 
+    case factors do
+      [] -> true
+      [_|_] -> false
+    end
+  end
+
 end
 
 
