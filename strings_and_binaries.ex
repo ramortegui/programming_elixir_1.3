@@ -15,4 +15,15 @@ defmodule Stringy do
   def is_printable?(c) do
     c >= 32 && c <126
   end
+
+  def anagram(stringa, stringb) do
+    if String.length(stringa) == String.length(stringb) do
+      _anagram(stringa,stringb)
+    else
+      false
+    end
+  end
+  defp _anagram(stringa, stringb ) do
+    Enum.sort(to_charlist("asdf"),&(&1<&2)) == Enum.sort(to_charlist("fdsa"),&(&1<&2))
+  end
 end
