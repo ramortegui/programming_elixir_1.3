@@ -1,6 +1,7 @@
 
 #Single-quoted string contains only printable characters
 #center - print centered string StringsAndBinaries-5
+#capitalize sentences. StringAndBinaries-6
 defmodule Stringy do
   def printable?([]) do
     true
@@ -51,6 +52,13 @@ defmodule Stringy do
     print_centered(tail,length)
   end
 
+  def capitalize_sentences(string) do
+    string
+    |> String.split(". ")
+    |> Enum.filter(&String.length(&1)>0)
+    |> Enum.map(&String.capitalize(&1)<>". ")
+    |> List.to_string
+  end
 end
 
 #Simple calculator StringsAndBinares-4
