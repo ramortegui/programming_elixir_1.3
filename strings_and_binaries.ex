@@ -1,4 +1,6 @@
+
 #Single-quoted string contains only printable characters
+#center - print centered string StringsAndBinaries-5
 defmodule Stringy do
   def printable?([]) do
     true
@@ -26,6 +28,29 @@ defmodule Stringy do
   defp _anagram(stringa, stringb ) do
     Enum.sort(to_charlist("asdf"),&(&1<&2)) == Enum.sort(to_charlist("fdsa"),&(&1<&2))
   end
+ 
+  def center(list) when is_list(list) do
+    larger = larger_string(list,0)
+    print_centered(list,larger)
+  end
+
+  defp larger_string([],longer) , do: longer 
+  defp larger_string([head|tail], longer) do
+    if(String.length(head) > longer) do
+      larger_string(tail,String.length(head)) 
+    else
+      larger_string(tail,longer) 
+    end
+  end
+
+  defp print_centered([],_) do :ok  end 
+  defp print_centered([head|tail], length) do
+    head
+    |> String.pad_leading( div(length-String.length(head) , 2)+String.length(head) ," " )
+    |> IO.puts  
+    print_centered(tail,length)
+  end
+
 end
 
 #Simple calculator StringsAndBinares-4
