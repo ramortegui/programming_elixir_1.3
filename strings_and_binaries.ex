@@ -27,3 +27,23 @@ defmodule Stringy do
     Enum.sort(to_charlist("asdf"),&(&1<&2)) == Enum.sort(to_charlist("fdsa"),&(&1<&2))
   end
 end
+
+#Simple calculator StringsAndBinares-4
+defmodule Calc do
+  def calculate(string) do
+    values = Regex.named_captures(~r/(?<num1>\d+)(?<op>[+|-|*|\/])(?<num2>\d+)/,string)
+    calculate(values["op"],String.to_integer(values["num1"]),String.to_integer(values["num2"]))
+  end
+  def calculate("+",num1,num2) do
+    num1 + num2
+  end
+  def calculate("-",num1,num2) do
+    num1 - num2
+  end
+  def calculate("*",num1,num2) do
+    num1 * num2
+  end
+  def calculate("/",num1,num2) do
+    num1 / num2
+  end
+end
