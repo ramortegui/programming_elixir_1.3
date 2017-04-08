@@ -16,4 +16,9 @@ defmodule Stack do
   def handle_cast({:push,val}, stack) do
     { :noreply, [ val | stack ] }
   end
+
+  def terminate(reason,state) do
+    IO.puts "Error closing: #{inspect reason}"
+    IO.puts "Last state: #{inspect state}" 
+  end
 end
